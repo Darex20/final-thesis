@@ -1,0 +1,9 @@
+ -- DROPOUT --
+https://towardsdatascience.com/machine-learning-part-20-dropout-keras-layers-explained-8c9f6dc4c9ab
+
+ -- KERSA MODEL -- 
+https://www.tutorialspoint.com/keras/keras_models.htm
+https://machinelearningknowledge.ai/keras-lstm-layer-explained-for-beginners-with-example/
+
+ -- PREDICTING STOCK PRICES --
+https://towardsdatascience.com/is-it-possible-to-predict-stock-prices-with-a-neural-network-d750af3de50b
