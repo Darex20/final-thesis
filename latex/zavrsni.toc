@@ -1,4 +1,3 @@
 \babel@toc {croatian}{}\relax 
 \contentsline {chapter}{\numberline {1}Uvod}{1}{}%
-\contentsline {chapter}{\numberline {2}Zags}{2}{}%
-\contentsline {chapter}{\numberline {3}Zaključak}{3}{}%
+\contentsline {chapter}{\numberline {2}Zaključak}{2}{}%
