@@ -1,3 +1,4 @@
+from operator import mod
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -38,7 +39,6 @@ for i in range(prediction_days, len(scaled_data)):
     # appending scaled data to x_train from 
     x_train.append(scaled_data[i-prediction_days:i, 0])
     y_train.append(scaled_data[i, 0])
-print(x_train)
 
 x_train, y_train = np.array(x_train), np.array(y_train)
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
@@ -103,15 +103,12 @@ predicted_prices = model.predict(x_test)
 # Inverse transform our scaled data
 predicted_prices = scaler.inverse_transform(predicted_prices)
 
-print(predicted_prices)
-print(actual_prices)
-
 # Plotting test predictions
 plt.plot(actual_prices, color="black", label=f'Actual {company} price')
 plt.plot(predicted_prices, color="red", label=f'Predicted {company} price')
 plt.title(f'{company} Share Price')
-plt.xlabel('Time')
-plt.ylabel(f'{company} Share Price')
+plt.xlabel(f'Days passed from {test_start} up until {test_end}')
+plt.ylabel(f'{company} Share Price (in american dollars $)')
 plt.legend()
 plt.show()
 
