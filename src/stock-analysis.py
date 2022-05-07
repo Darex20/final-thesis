@@ -1,3 +1,4 @@
+from operator import mod
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -8,34 +9,51 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
-# Loading Data
-company = "FB" # FB, TSLA, GOOG, AMZN, AAPL, MSFT
+# Loading data
+company = 'FB' # FB, TSLA, GOOG, AMZN, AAPL, MSFT
 
 start_date = dt.datetime(2012, 1, 1)
 end_date = dt.datetime(2020, 1, 1)
 
 data = pdr.DataReader(company, 'yahoo', start_date, end_date)
 
-# Preparing Data
+# Preparing data
 # Fitting data into 0 to 1 range
 # To produce the best-optimized results with the models, we are required to scale the data.
+# If we do not scale the data we create bias, which means it can predict few things great but everything else would be badly predicted
 scaler = MinMaxScaler(feature_range=(0,1))
- 
+
 # reshape(-1, 1) turning columns to rows (only one column remains)
-scaled_data = scaler.fit_transform(data['Close'].values.reshape(-1, 1))
+scaled_data = scaler.fit_transform(data['Adj Close'].values.reshape(-1, 1))
+
+
+""" MOCK DATA """
+mock_data = []
+with open("step-data.txt", "r") as f:
+    line = f.readline()
+
+for value in line.split(" "):
+    if value:
+        mock_data.append(float(value))
+
+mock_data = np.array(mock_data)
+scaled_mock = scaler.fit_transform(mock_data.reshape(-1, 1))
+""" --------- """
+
 
 # Prediction_days
-prediction_days = 30
+prediction_days = 1
 
+# x_train represents input data
 x_train = []
-y_train = []
 
+# y_train represents target data 
+y_train = []
 
 for i in range(prediction_days, len(scaled_data)):
     # appending scaled data to x_train from 
     x_train.append(scaled_data[i-prediction_days:i, 0])
     y_train.append(scaled_data[i, 0])
-print(x_train)
 
 x_train, y_train = np.array(x_train), np.array(y_train)
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
@@ -65,19 +83,22 @@ model.summary()
 model.compile(optimizer='adam', loss='mean_squared_error')
 
 # Trains the model for a fixed number of epochs (iterations on a dataset) using the training data
-model.fit(x_train, y_train, epochs=25, batch_size=32)
+model.fit(x_train, y_train, epochs=10)
 
 
 """ TESTING MODEL ACCURACY ON EXISTING DATA """
 
-#Loading Test Data
+# Loading Test Data
+# Test data starts off where train data ended and ends on current day
 test_start = dt.datetime(2020, 1, 1)
 test_end = dt.datetime.now()
 
 test_data = pdr.DataReader(company, 'yahoo', test_start, test_end)
-actual_prices = test_data['Close'].values
+actual_prices = test_data['Adj Close'].values
 
-total_dataset = pd.concat((data['Close'], test_data['Close']), axis = 0)
+# Combined train and test data
+total_dataset = pd.concat((data['Adj Close'], test_data['Adj Close']), axis = 0)
+
 
 model_inputs = total_dataset[len(total_dataset) - len(test_data) - prediction_days:].values
 model_inputs = model_inputs.reshape(-1, 1)
@@ -97,15 +118,12 @@ predicted_prices = model.predict(x_test)
 # Inverse transform our scaled data
 predicted_prices = scaler.inverse_transform(predicted_prices)
 
-print(predicted_prices)
-print(actual_prices)
-
 # Plotting test predictions
-plt.plot(actual_prices, color="black", label=f"Actual {company} price")
-plt.plot(predicted_prices, color="green", label=f"Predicted {company} price")
-plt.title(f"{company} Share Price")
-plt.xlabel('Time')
-plt.ylabel(f'{company} Share Price')
+plt.plot(actual_prices, color="black", label=f'Actual {company} price')
+plt.plot(predicted_prices, color="red", label=f'Predicted {company} price')
+plt.title(f'{company} Share Price')
+plt.xlabel(f'Days passed from {test_start} up until {test_end}')
+plt.ylabel(f'{company} Share Price (in american dollars $)')
 plt.legend()
 plt.show()
 
@@ -116,4 +134,4 @@ real_data = np.reshape(real_data, (real_data.shape[0], real_data.shape[1], 1))
 
 prediction = model.predict(real_data)
 prediction = scaler.inverse_transform(prediction)
-print(f"Prediction: {prediction}")
+print(f'Prediction: {prediction}')
