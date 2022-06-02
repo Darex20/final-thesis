@@ -7,3 +7,44 @@ https://machinelearningknowledge.ai/keras-lstm-layer-explained-for-beginners-wit
 
  -- PREDICTING STOCK PRICES --
 https://towardsdatascience.com/is-it-possible-to-predict-stock-prices-with-a-neural-network-d750af3de50b
+
+
+-- TIMESTEP ARTICLE --
+https://www.diva-portal.org/smash/get/diva2:1361305/FULLTEXT01.pdf
+
+
+-- MACHINE LEARNING --
+https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/ai-vs-machine-learning-vs-deep-learning
+
+
+-- NEURONI --
+https://qbi.uq.edu.au/brain/brain-anatomy/what-neuron
+
+-- VRSTE NEURONSKIH MREŽA --
+https://www.analyticsvidhya.com/blog/2020/02/cnn-vs-rnn-vs-mlp-analyzing-3-types-of-neural-networks-in-deep-learning/
+
+-- OPTIMIZERS --
+https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
+https://www.fer.unizg.hr/_download/repository/SU-8-LinearniDiskriminativniModeli.pdf
+https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html
+https://towardsdatascience.com/7-tips-to-choose-the-best-optimizer-47bb9c1219e
+
+-- LOSS FUNCTIONS --
+https://www.theaidream.com/post/loss-functions-in-neural-networks
+https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/
+https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
+
+-- AKTIVACIJSKE FUNKCIJE --
+https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
+
+-- POVRATNE MREŽE --
+http://www.zemris.fer.hr/~ssegvic/du/du5recurrent.pdf
+https://machinelearningmastery.com/an-introduction-to-recurrent-neural-networks-and-the-math-that-powers-them/
+http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+-- PROBLEM EKSPLODIRAJUĆEG I NESTAJUĆEG GRADIJENTA --
+http://www.zemris.fer.hr/~ssegvic/du/du6recurrent2.pdf
+https://towardsdatascience.com/the-exploding-and-vanishing-gradients-problem-in-time-series-6b87d558d22
+
+-- LSTM RJEŠENJE ZA NESTAJUĆI GRADIJENT --
+https://medium.datadriveninvestor.com/how-do-lstm-networks-solve-the-problem-of-vanishing-gradients-a6784971a577

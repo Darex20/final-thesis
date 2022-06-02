@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.29)  3 MAY 2022 18:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.29)  8 MAY 2022 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -360,8 +360,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-{C:/Users/Dario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [3]
-(zavrsni.toc)
+{C:/Users/Dario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 18
+.
+
+(C:\Users\Dario\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+[1] [3] (zavrsni.toc)
 \tf@toc=\write3
 \openout3 = `zavrsni.toc'.
 
@@ -373,7 +379,7 @@ Poglavlje 1.
 
 ]
 Poglavlje 2.
-<img/FER_logo.jpg, id=18, 1180.41pt x 420.57124pt>
+<img/FER_logo.jpg, id=23, 1180.41pt x 420.57124pt>
 File: img/FER_logo.jpg Graphic file (type jpg)
 <use img/FER_logo.jpg>
 Package pdftex.def Info: img/FER_logo.jpg  used on input line 32.
@@ -381,28 +387,26 @@ Package pdftex.def Info: img/FER_logo.jpg  used on input line 32.
 No file zavrsni.bbl.
 [2
 
- <./img/FER_logo.jpg>] [3] (zavrsni.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ <./img/FER_logo.jpg>] [3] (zavrsni.aux) ) 
 Here is how much of TeX's memory you used:
- 6826 strings out of 478582
- 111199 string characters out of 2844344
+ 6862 strings out of 478582
+ 111716 string characters out of 2844344
  409856 words of memory out of 3000000
- 24922 multiletter control sequences out of 15000+600000
- 509849 words of font info for 65 fonts, out of 8000000 for 9000
+ 24951 multiletter control sequences out of 15000+600000
+ 513373 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,6n,77p,270b,393s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/Dario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
-/Users/Dario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb>
-<C:/Users/Dario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.p
-fb><C:/Users/Dario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.p
-fb><C:/Users/Dario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
-fb>
-Output written on zavrsni.pdf (6 pages, 83122 bytes).
+{C:/Users/Dario/AppData/Local/Program
+s/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Dario/AppData/Local/Programs/MiK
+TeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Dario/AppData/Local/Programs/
+MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Dario/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Dario/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Dario/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Dario/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on zavrsni.pdf (7 pages, 101911 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
