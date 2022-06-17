@@ -19,6 +19,8 @@ with open('./config.json') as f:
 	config = json.load(f)
 
 use_mock_data = config["use_mock_data"]
+use_own_prediction_model = config["use_own_prediction_model"]
+output_values = config["output_values"]
 company = config["company"]
 epochs = config["epochs"]
 batch_size = config["batch_size"]
@@ -33,7 +35,6 @@ start_date = dt.datetime(int(test_start_date[2]), int(test_start_date[1]), int(t
 end_date = dt.datetime(int(test_end_date[2]), int(test_end_date[1]), int(test_end_date[0]))
 
 data = pdr.DataReader(company, 'yahoo', start=start_date, end=end_date)
-
 # Preparing data
 # Fitting data into 0 to 1 range
 # To produce the best-optimized results with the models, we are required to scale the data.
@@ -153,6 +154,13 @@ else:
     model_inputs = model_inputs.reshape(-1, 1)
     model_inputs = scaler.transform(model_inputs)
 
+    my_predictions = total_dataset[len(total_dataset) - len(test_data) - timestep: len(total_dataset) - len(test_data)].values
+    my_predictions = my_predictions.reshape(-1, 1)
+    my_predictions = scaler.transform(my_predictions)
+
+    my_actual_prices = test_data['Adj Close'].values
+    my_actual_prices = total_dataset[len(total_dataset) - len(test_data): len(total_dataset) - len(test_data) + timestep].values
+
     for i in range(timestep, len(model_inputs)):
         x_test.append(model_inputs[i-timestep:i, 0])
     actual_prices = test_data['Adj Close'].values
@@ -165,14 +173,53 @@ predicted_prices = model.predict(x_test)
 predicted_prices = scaler.inverse_transform(predicted_prices)
 
 # Plotting test predictions
-plt.plot(actual_prices, color="black", label=f'Actual {company} price')
-plt.plot(predicted_prices, color="red", label=f'Predicted {company} price')
-plt.title(f'{company} Share Price')
-plt.xlabel(f'Days passed from {test_start} up until {test_end}')
-plt.ylabel(f'{company} Share Price (in american dollars $)')
-plt.legend()
-plt.show()
+if not use_mock_data:
+    plt.plot(actual_prices, color="black", label=f'Actual {company} price')
+    plt.plot(predicted_prices, color="red", label=f'Predicted {company} price')
+    plt.title(f'{company} Share Price')
+    plt.xlabel(f'Days passed from {test_start} up until {test_end}')
+    plt.ylabel(f'{company} Share Price (in american dollars $)')
+    plt.legend()
+    plt.show()
+else:
+    plt.plot(actual_prices, color="black", label=f'Actual value')
+    plt.plot(predicted_prices, color="red", label=f'Predicted value')
+    plt.title(f'Synthetic data')
+    plt.legend()
+    plt.show()
 
+if use_own_prediction_model:
+    curr_data = [my_predictions[len(my_predictions) - timestep:len(my_predictions+1), 0]]
+    curr_data_array = np.array(curr_data)
+    curr_data_array = np.reshape(curr_data_array, (curr_data_array.shape[0], curr_data_array.shape[1], 1))
+    for i in range(timestep):
+        prediction = model.predict(curr_data_array)
+        curr_data = np.append(curr_data, prediction)
+        curr_data = [curr_data[1: timestep+1]]
+        curr_data_array = np.array(curr_data)
+        curr_data_array = np.reshape(curr_data_array, (curr_data_array.shape[0], curr_data_array.shape[1], 1))
+
+    curr_data = scaler.inverse_transform(curr_data)
+    curr_data = curr_data.reshape(-1, 1)
+
+    plt.plot(my_actual_prices, color="black", label=f'Actual {company} price')
+    plt.plot(curr_data, color="red", label=f'Predicted {company} price')
+    plt.title(f'{company} Share Price')
+    plt.xlabel(f'Days passed from {test_start} up until {test_end}')
+    plt.ylabel(f'{company} Share Price (in american dollars $)')
+    plt.legend()
+    plt.show()
+
+# Output predictions, real values, input and error
+if output_values:
+    i = 0
+    for val in x_test:
+        print(f'Input -> {scaler.inverse_transform(val).tolist()}')
+        print(f'Prediction -> {predicted_prices[i][0]}')
+        print(f'Real value -> {actual_prices[i]}')
+        print(f'Absolute Error -> {abs(actual_prices[i]-predicted_prices[i][0])}')
+        print()
+        i += 1
 
 real_data = [model_inputs[len(model_inputs) - timestep:len(model_inputs+1), 0]]
 real_data = np.array(real_data)

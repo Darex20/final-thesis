@@ -1,11 +1,13 @@
 {
-    "companies_comment": "FB, TSLA, GOOG, AMZN, AAPL, MSFT",
-    "company": "FB",
+    "companies_comment": "META, TSLA, GOOG, AMZN, AAPL, MSFT",
+    "company": "META",
     "test_start_date": "1.1.2012",
     "test_end_date": "1.1.2020",
     "train_start_date": "1.1.2020",
     "use_mock_data": false,
-    "epochs": 100,
+    "use_own_prediction_model": false,
+    "output_values": false,
+    "epochs": 10,
     "batch_size": 32,
-    "timestep": 10
+    "timestep": 5
 }

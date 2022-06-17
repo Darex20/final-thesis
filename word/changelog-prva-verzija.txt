@@ -1,0 +1,29 @@
+Svi nazivi rekurentne neuronske mreže pretvoreni u povratne neuronske mreže.
+
+Svi nazivi set pretvoreni u skup.
+
+Maknuti viška razmaci prije zareza i maknut zarez iza zareza.
+
+Sa četiri sloja -> s četiri sloja.
+
+2.5.3
+ne može zapisati u memoriji računala - izbačeno
+
+3.1
+Odnosno -> Drugim riječima
+
+3.2 
+Popravljeno poravnanje drugog paragrafa
+
+3.3.3
+Konstrukcija - tako što po određenoj stopi (u našem slučaju 20%) nasumično onemogućava neurone i njima odgovarajuće veze.
+pretvorena u 
+Konstrukciju - tako što po određenoj stopi (u našem slučaju 20%) nasumično onemogućava neurone i njihove odgovarajuće veze nakon svakog skrivenog sloja mreže kao što je prikazano u izgledu mreže na slici 3.3
+
+Dodan detaljniji pogled na ulazni i izlazni sloj u mreži.
+
+Dodan primjer niza ulaznih vrijednosti, predviđanje, točna vrijednost i apsolutna pogreška (Slika 3.6)
+
+Linkovi na literaturu dodani.
+
+Dodana poglavlja Rezultati, Zaključak i Sažetak.

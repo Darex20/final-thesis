@@ -1,0 +1,9 @@
+Predviđanje tržišta dionica neuronskim mrežama
+
+Opisati neuronske mreže. Definirati problem predviđanja tržišta dionica.
+Opisati kako primjeniti neuronske mreže na predviđanje tržišta dionica.
+Definirati LSTM model ponavljajućih neuronskih mreža(RNN).
+Ostvariti programsko okruženje koje pokušava predvidjeti tržište dionica.
+Ispitati i analizirati učinkovitost predviđanja tržišta pomoću neuronskih mreža-
+Radu priložiti izvorne tekstove programa, dobivene rezultate uz potrebna objašnjenja i
+korištenu literaturu.
