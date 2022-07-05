@@ -1,0 +1,48 @@
+S1
+Vrste strojnog učenja, nadzirano je ono gdje mi prilikom učenja dajemo ciljno rješenje, neneadzirano je bez ciljnog rješenja, podržano učenje je gdje definiramo agenta i okolinu, te oni jedni druge feedaju sa informacijama, agent o akcijama koje poduzima (at), a okolina svoje stanje, te preadje nagradu agentu.
+
+S2
+Primjer jednog neurona, odnosno perceptrona, sa ulazima, njihovim težinama, biasom(pomakom) i aktivacijskom funkcijom. Kao aktivacijske funckije imamo step(bool funkcije), ReLU(max(0,net)), tanh i sigmoidna funkcija(koje se interno koriste u LSTM ćeliji). Povratne neuronske mreže koristimo uglavnom za predviđanje time-series (slijeda u vremenu), konvolucijske mreže su prilagođene za vizualne podatke poput slika.
+
+S3
+Učenje neuronske mreže – nadzirano, gdje je ulaz sljedeći. Prije samog učenja bitna nam je podjela skupa podataka na skup za učenje i treniranje (overfitting razlozi). Prilikom učenja za funkciju gubitka koristimo Mean squared error ili srednju kvadratnu pogrešku koju propagiramo unazad da namjestimo težine u mreži koristeći optimizacijski algoritam Adam.
+
+S4
+LSTM je podvrsta povratnih neuronskih mreža koja rješava problem kratkotrajne memorije običnih povratnih mreža. LSTM za razliku od običnog perceptrona sadrži par dodatnih parametara poput ulaza memorije prethodne ćelije, ulaz izlaza prethodne ćelije, te izlaznih ekvivalenti trenutne ćelije. Interno koristi sigmoidnu i tanh aktivacijsku funkciju.
+
+S5
+Numpy za vektoriziranje ulaza i izlaza u model, pandas prilikom obrade podataka, sklearn za minmax scaler i tensorflow za izgradnju samog modela.
+
+S6
+Izgled mreže, cilj je da mi koristimo određeni broj dana unazad da bi odredili jedan dan.
+
+S7
+Ulaz dataframe. Kao vrijednosti uzimamo adj close i datume.
+
+S8
+Ulaz su cijene prethodnih 5 dana, primjer predviđanja, prave cijene i pogreške.
+
+S9
+
+
+S10
+Rezultati za određene parametre. Graf predviđanja generalno čak i prati graf pravih cijena.
+
+S11
+
+
+S12
+Rezultati s varirajućim batch sizeom. (32 size optimalan)
+
+S13
+Rezultati s varirajućom timestep varijablom. (Zaglađenost)
+
+S14
+Rezultati s varirajućom epochs varijablom. (7, 8 optimalno). Epochs određuje koliko puta ćemo provući isti skup podataka za učenje.
+
+S15
+Rezultati modela predviđanja sa svojim vlastitim vrijednostima.
+
+S16
+Cijene uzimane za predviđanje su uglavnom bile od Meta dionica, pošto je Meta generalno stabilna, za neke druge dionice su rezultati uglavnom i gori. Iako su predviđanja bila loša, LSTM za predviđanje možemo pokušati koristiti, ali bi najbolje bilo da su to neki kraći rasponi koje uzimamo u obzir. Predviđanja modela gdje koristi vlastita predviđanja za nadolazeće dane je ispao jako loš, njega bi trebalo izbjegavati. Kao odgovor na pitanje kako poboljšati sustav, trebalo bi na neki način uvesti kako će vanjski faktori više utjecati na predviđanje nevezano uz čiste podatke. Spajati se na Twitter API i potencijalno uzimati u obzir tweetove, webscrapeati članke koje pišu o određenim tvrtkama, pratiti inflaciju, omjer potražnje i opskrbe, pratiti trendove online kupovine.
+

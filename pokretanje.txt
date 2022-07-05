@@ -1,0 +1,1 @@
+Za pokretanje potrebne su pythonove biblioteke matplotlib, numpy, pandas, datetime, tensorflow, keras i sklearn
