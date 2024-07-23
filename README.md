@@ -1,6 +1,6 @@
 # Predicting Stock Market Movements Using Neural Networks
 
-This repository contains the code and resources for the thesis titled "Predicting Stock Market Movements Using Neural Networks" by Dario Pavlović. The thesis explores the application of machine learning, specifically neural networks, to predict stock market prices.
+This repository contains the code and resources for the thesis titled "Predicting Stock Market Movements Using Neural Networks". The thesis explores the application of machine learning, specifically neural networks, to predict stock market prices.
 
 ## Table of Contents
 
